@@ -9,43 +9,26 @@ QT += core gui opengl network multimedia widgets
 TARGET   = RCM-RA
 TEMPLATE = app
 
-unix:INCLUDEPATH += "/usr/include/GL/"                            # OpenGL
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libglut.so"               # OpenGL
+QT_CONFIG -= no-pkg-config
+CONFIG += link_pkgconfig
+PKGCONFIG += opencv
 
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_features2d.so"  # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so"   # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_stitching.so"   # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_videostab.so"   # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_highgui.so"     # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so"     # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_contrib.so"     # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so"     # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_legacy.so"      # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_photo.so"       # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_flann.so"       # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_video.so"       # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_core.so"        # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_gpu.so"         # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_ocl.so"         # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_ml.so"          # OpenCV
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/libopencv_ts.so"          # OpenCV
-
-unix:LIBS += "/usr/lib/x86_64-linux-gnu/lib3ds.so"                # Modelos 3D
+LIBS += -L/usr/local/Cellar/opencv@2/2.4.13.4/lib/
 
 SOURCES += main.cpp\
            mainwindow.cpp \
            scene.cpp \
-    aruco/ar_omp.cpp \
-    aruco/arucofidmarkers.cpp \
-    aruco/board.cpp \
-    aruco/boarddetector.cpp \
-    aruco/cameraparameters.cpp \
-    aruco/chromaticmask.cpp \
-    aruco/cvdrawingutils.cpp \
-    aruco/highlyreliablemarkers.cpp \
-    aruco/marker.cpp \
-    aruco/markerdetector.cpp \
-    aruco/subpixelcorner.cpp
+           aruco/ar_omp.cpp \
+           aruco/arucofidmarkers.cpp \
+           aruco/board.cpp \
+           aruco/boarddetector.cpp \
+           aruco/cameraparameters.cpp \
+           aruco/chromaticmask.cpp \
+           aruco/cvdrawingutils.cpp \
+           aruco/highlyreliablemarkers.cpp \
+           aruco/marker.cpp \
+           aruco/markerdetector.cpp \
+           aruco/subpixelcorner.cpp
 
 HEADERS += mainwindow.h \
            model.h \
@@ -55,18 +38,18 @@ HEADERS += mainwindow.h \
            webimage.h \
            webmusic.h \
            logo.h \
-    aruco/ar_omp.h \
-    aruco/aruco.h \
-    aruco/arucofidmarkers.h \
-    aruco/board.h \
-    aruco/boarddetector.h \
-    aruco/cameraparameters.h \
-    aruco/chromaticmask.h \
-    aruco/cvdrawingutils.h \
-    aruco/exports.h \
-    aruco/highlyreliablemarkers.h \
-    aruco/marker.h \
-    aruco/markerdetector.h \
-    aruco/subpixelcorner.h
+           aruco/ar_omp.h \
+           aruco/aruco.h \
+           aruco/arucofidmarkers.h \
+           aruco/board.h \
+           aruco/boarddetector.h \
+           aruco/cameraparameters.h \
+           aruco/chromaticmask.h \
+           aruco/cvdrawingutils.h \
+           aruco/exports.h \
+           aruco/highlyreliablemarkers.h \
+           aruco/marker.h \
+           aruco/markerdetector.h \
+           aruco/subpixelcorner.h
 
 FORMS   += mainwindow.ui
