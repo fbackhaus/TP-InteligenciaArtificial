@@ -13,7 +13,11 @@ QT_CONFIG -= no-pkg-config
 CONFIG += link_pkgconfig
 PKGCONFIG += opencv
 
+INCLUDEPATH += /usr/local/Cellar/lib3ds/1.3.0/include
+DEPENDPATH += /usr/local/Cellar/lib3ds/1.3.0/include
+
 LIBS += -L/usr/local/Cellar/opencv@2/2.4.13.4/lib/
+LIBS += -L/usr/local/Cellar/lib3ds/1.3.0/lib/ -l3ds-1.3.0.0
 
 SOURCES += main.cpp\
            mainwindow.cpp \
