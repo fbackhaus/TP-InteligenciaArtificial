@@ -5,7 +5,7 @@ Scene::Scene( QWidget *parent ) : QGLWidget( parent ),
                                   sceneTimer ( new QTimer ),
                                   textures( new QVector< Texture * > )
 {
-    this->setMinimumSize( videoCapture->get( CV_CAP_PROP_FRAME_WIDTH ), videoCapture->get( CV_CAP_PROP_FRAME_HEIGHT ) );
+    this->setMinimumSize( RESOLUTION_WIDTH, RESOLUTION_HEIGHT );
     sceneTimer->start( 10 );
 
     connect( sceneTimer, SIGNAL( timeout() ), SLOT( slot_updateScene() ) );
@@ -13,7 +13,7 @@ Scene::Scene( QWidget *parent ) : QGLWidget( parent ),
 
 void Scene::loadTextures()
 {
-    QDir directory( "../Textures" );
+    QDir directory( QString( CURRENT_DIR ).append( "/textures" ) );
     QStringList fileFilter;
     fileFilter << "*.jpg" << "*.png" << "*.bmp" << "*.gif";
     QStringList imageFiles = directory.entryList( fileFilter );
@@ -21,7 +21,7 @@ void Scene::loadTextures()
     for ( int i = 0; i < imageFiles.size(); i++ )
     {
         textures->append( new Texture( imageFiles.at( i ) ) );
-        QString textureUri = "../Textures/" + imageFiles.at( i );
+        QString textureUri = "" + imageFiles.at( i );
 
         Mat textureMat = imread( textureUri.toStdString() );
         flip( textureMat, textureMat, 0 );

@@ -22,6 +22,5 @@ SOURCES += main.cpp\
            scene.cpp
 
 HEADERS += \
-           model.h \
            scene.h \
            texture.h

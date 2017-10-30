@@ -3,6 +3,7 @@
 
 #define RESOLUTION_WIDTH  1280
 #define RESOLUTION_HEIGHT 720
+#define CURRENT_DIR "/Users/ekohmann/qt/TP-InteligenciaArtificial"
 
 #include <QDir>
 #include <QFile>
