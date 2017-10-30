@@ -1,4 +1,4 @@
-
+%YAML:1.0
 calibration_time: "dom 27 feb 2011 17:16:27 CET"
 nframes: 30
 image_width: 640
@@ -27,7 +27,7 @@ per_view_reprojection_errors: !!opencv-matrix
    dt: f
    data: [ 4.28777784e-01, 9.05612946e-01, 1.08689988e+00,
        6.98072255e-01, 9.57101762e-01 ]
-
+# a set of 6-tuples (rotation vector + translation vector) for each view
 extrinsic_parameters: !!opencv-matrix
    rows: 5
    cols: 6
