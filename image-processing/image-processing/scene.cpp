@@ -89,7 +89,48 @@ void Scene::paintGL()
 void Scene::process( Mat &frame )
 {
     Mat grayscaleMat; cvtColor( frame, grayscaleMat, CV_BGR2GRAY );
+
+    Mat dst, detected_edges;
+
+    int lowThreshold = 10; // Parametrizar
+    int ratio = 20;
+    int kernel_size = 3;
+
+    if( !frame.data )
+    {
+        return;
+    }
+
+    dst.create( frame.size(), frame.type() );
+
+    blur( grayscaleMat, detected_edges, Size(3, 3) );
+
+    Canny( detected_edges, detected_edges, lowThreshold, lowThreshold * ratio, kernel_size );
+
     Mat binaryMat; threshold( grayscaleMat, binaryMat, 128, 255, cv::THRESH_BINARY );
+    std::vector<std::vector<cv::Point> > contoursH; std::vector<cv::Vec4i> hierarchyH;
+
+    findContours(detected_edges, contoursH, hierarchyH, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE);
+
+//    for(int i = 0; i < contoursH.size(); i++)
+//    {
+//        if(contoursH[i].size() < 100)
+//        {
+//            contoursH.erase(contoursH.begin() + (i-1));
+//        }
+//    }
+
+    cv::Mat outputH = frame.clone();
+    for( int i = 0; i< contoursH.size(); i++ )
+    {
+        cv::drawContours( outputH, contoursH, i, cv::Scalar(0,0,255), 3, 8, hierarchyH, 0);
+    }
+
+    dst = Scalar::all(0);
+
+    frame.copyTo( dst, detected_edges);
+
+    cv::imshow(QString("window").toStdString().c_str(), outputH);
 }
 
 void Scene::drawCamera( int percentage )
@@ -181,6 +222,10 @@ void Scene::drawBox( QString textureName, int percentage )
             glDisable( GL_LIGHTING );
             glDisable( GL_TEXTURE_2D );
         }
+}
+
+void Scene::cannyThreshold()
+{
 }
 
 void Scene::slot_updateScene()

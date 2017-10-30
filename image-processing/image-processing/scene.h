@@ -40,6 +40,8 @@ private:
     void drawSheet( QString textureName, int percentage = 100 );
     void drawBox( QString textureName, int percentage = 100 );
 
+    void cannyThreshold();
+
 public:
 
     Scene( QWidget *parent = 0 );
