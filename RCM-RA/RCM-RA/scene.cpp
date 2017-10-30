@@ -30,7 +30,7 @@ Scene::Scene( QWidget *parent ) : QGLWidget( parent ),
 {
     this->setMinimumSize( videoCapture->get( CV_CAP_PROP_FRAME_WIDTH ), videoCapture->get( CV_CAP_PROP_FRAME_HEIGHT ) );
 
-    cameraParameters->readFromXMLFile( "../Files/CameraParameters.yml" );
+    //cameraParameters->readFromXMLFile( "../Files/CameraParameters.yml" );
     sceneTimer->start( 10 );
 
     connect( webMusicPlayer, SIGNAL( bufferStatusChanged( int ) ), SLOT( slot_webMusicPlayerBufferChanged( int ) ) );
@@ -230,7 +230,7 @@ void Scene::paintGL()
 
     cv::Size2i sceneSize( RESOLUTION_WIDTH, RESOLUTION_HEIGHT );
     cv::Size2i openGlSize( RESOLUTION_WIDTH, RESOLUTION_HEIGHT );
-    cameraParameters->glGetProjectionMatrix( sceneSize, openGlSize, projectionMatrix, 0.05, 10 );
+    //cameraParameters->glGetProjectionMatrix( sceneSize, openGlSize, projectionMatrix, 0.05, 10 );
 
     glLoadMatrixd( projectionMatrix );
     glMatrixMode( GL_MODELVIEW );
@@ -422,8 +422,8 @@ void Scene::process( Mat &frame )
         Mat binaryMat; threshold( grayscaleMat, binaryMat, 128, 255, cv::THRESH_BINARY );
 
         std::vector< Marker > detectedMarkersVector;
-        cameraParameters->resize( binaryMat.size() );
-        markerDetector->detect( binaryMat, detectedMarkersVector, *cameraParameters, 0.08f );
+        //cameraParameters->resize( binaryMat.size() );
+        //markerDetector->detect( binaryMat, detectedMarkersVector, *cameraParameters, 0.08f );
         detectedMarkers = QVector< Marker >::fromStdVector( detectedMarkersVector );
 
         if( descriptionOption )
