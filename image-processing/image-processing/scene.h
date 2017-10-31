@@ -1,8 +1,8 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#define RESOLUTION_WIDTH  640
-#define RESOLUTION_HEIGHT 360
+#define RESOLUTION_WIDTH  960
+#define RESOLUTION_HEIGHT 540
 #define CURRENT_DIR "/Users/ekohmann/qt/TP-InteligenciaArtificial"
 
 #include <QDir>
