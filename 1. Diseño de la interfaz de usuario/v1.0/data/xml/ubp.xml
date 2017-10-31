@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<nodes>
+
+	<node>
+		<id>_ini</id>
+		<title>Inicio</title>
+		<icon>inicio.png</icon>
+		<children>_uni, _car, _pos, _inv</children>
+	</node>
+
+	<node>
+		<id>_uni</id>
+		<title>Universidad</title>
+		<icon>_uni.png</icon>
+		<children>_mvv, _evi, _aut, _cam</children>
+	</node>
+	
+	<node>
+		<id>_mvv</id>
+		<title>Misión, Visión, Valores</title>
+		<icon>_mvv.png</icon>
+		<children>_mis, _vis, _val</children>
+	</node>
+	
+	<node>
+		<id>_mis</id>
+		<title>Misión</title>
+		<icon>_mis.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_vis</id>
+		<title>Visión</title>
+		<icon>_vis.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_val</id>
+		<title>Valores</title>
+		<icon>_val.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_evi</id>
+		<title>Evaluación Institucional</title>
+		<icon>_evi.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_aut</id>
+		<title>Autoridades</title>
+		<icon>_aut.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_cam</id>
+		<title>Campus Universitario</title>
+		<icon>_cam.png</icon>
+		<children>_bib, _dep, _res, _ets, _lab</children>
+	</node>
+	
+	<node>
+		<id>_bib</id>
+		<title>Biblioteca</title>
+		<icon>_bib.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_dep</id>
+		<title>Área de Deportes</title>
+		<icon>_dep.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_res</id>
+		<title>Residencia Universitaria</title>
+		<icon>_res.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_ets</id>
+		<title>Estación Terrenal Satelital</title>
+		<icon>_ets.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_lab</id>
+		<title>Laboratorios Informáticos</title>
+		<icon>_lab.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_car</id>
+		<title>Carreras</title>
+		<icon>_car.png</icon>
+		<children>_edu, _amb, _jur, _tec, _emp</children>
+	</node>
+	
+	<node>
+		<id>_edu</id>
+		<title>Educación</title>
+		<icon>_edu.png</icon>
+		<children>_lgi, _lef</children>
+	</node>
+	
+	<node>
+		<id>_lgi</id>
+		<title>Licenciatura en Gestión de Instituciones Educativas</title>
+		<icon>_lgi.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_lef</id>
+		<title>Licenciatura en Educación Física</title>
+		<icon>_lef.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_amb</id>
+		<title>Ambiente y turismo</title>
+		<icon>_amb.png</icon>
+		<children>_ltu, _lgt, _lga</children>
+	</node>
+	
+	<node>
+		<id>_ltu</id>
+		<title>Licenciatura en Turismo</title>
+		<icon>_ltu.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_lgt</id>
+		<title>Licenciatura en Gestión del Turismo</title>
+		<icon>_lgt.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_lga</id>
+		<title>Licenciatura en Gestión Ambiental</title>
+		<icon>_lga.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_jur</id>
+		<title>Jurídicas</title>
+		<icon>_jur.png</icon>
+		<children>_abo, _not</children>
+	</node>
+	
+	<node>
+		<id>_abo</id>
+		<title>Abogacía</title>
+		<icon>_abo.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_not</id>
+		<title>Notariado</title>
+		<icon>_not.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_tec</id>
+		<title>Tecnología</title>
+		<icon>_tec.png</icon>
+		<children>_inf, _tel</children>
+	</node>
+	
+	<node>
+		<id>_inf</id>
+		<title>Ingeniería Informática</title>
+		<icon>_inf.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_tel</id>
+		<title>Ingeniería en Telecomunicaciones</title>
+		<icon>_tel.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_emp</id>
+		<title>Gestión de empresas</title>
+		<icon>_emp.png</icon>
+		<children>_lad, _con</children>
+	</node>
+	
+	<node>
+		<id>_lad</id>
+		<title>Licenciatura en Administración</title>
+		<icon>_lad.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_con</id>
+		<title>Contador Público</title>
+		<icon>_con.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_pos</id>
+		<title>Posgrados y cursos</title>
+		<icon>_pos.png</icon>
+		<children>_dip, _vin</children>
+	</node>
+	
+	<node>
+		<id>_dip</id>
+		<title>Diplomaturas</title>
+		<icon>_dip.png</icon>
+		<children>_dpc, _dpv</children>
+	</node>
+	
+	<node>
+		<id>_dpc</id>
+		<title>Diplomatura en Derecho Procesal Civil</title>
+		<icon>_dpc.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_dpv</id>
+		<title>Diplomatura en Producción de Videojuegos</title>
+		<icon>_dpv.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_vin</id>
+		<title>Vinculación</title>
+		<icon>_vin.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_inv</id>
+		<title>Investigación</title>
+		<icon>_inv.png</icon>
+		<children>_cen, _pro</children>
+	</node>
+	
+	<node>
+		<id>_cen</id>
+		<title>Centros de Investigación</title>
+		<icon>_cen.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_pro</id>
+		<title>Proyectos de Investigación</title>
+		<icon>_pro.png</icon>
+		<children>_rau, _rcm, _app, _vdj</children>
+	</node>
+	
+	<node>
+		<id>_rau</id>
+		<title>Realidad Aumentada</title>
+		<icon>_rau.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_rcm</id>
+		<title>Representación de Contenido Multimedia</title>
+		<icon>_rcm.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_app</id>
+		<title>Aplicación Móvil</title>
+		<icon>_app.png</icon>
+		<children>none</children>
+	</node>
+	
+	<node>
+		<id>_vdj</id>
+		<title>Visual DJ</title>
+		<icon>_vdj.png</icon>
+		<children>none</children>
+	</node>
+	
+</nodes>

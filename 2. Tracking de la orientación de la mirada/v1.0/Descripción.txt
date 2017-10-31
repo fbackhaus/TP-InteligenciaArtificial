@@ -1,0 +1,1 @@
+Esta versión contiene un prototipo de interfaz que levanta la cámara y calcula el conjunto de puntos a trackear, a su vez hace un seguimiento de los mismos y calcula el centroide y la diferencia con el centro del roi utilizado (centro de la nariz). Todos los puntos son graficados en el mismo widget.
