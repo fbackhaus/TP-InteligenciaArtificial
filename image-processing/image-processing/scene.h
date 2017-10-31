@@ -1,8 +1,8 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#define RESOLUTION_WIDTH  1280
-#define RESOLUTION_HEIGHT 720
+#define RESOLUTION_WIDTH  640
+#define RESOLUTION_HEIGHT 360
 #define CURRENT_DIR "/Users/ekohmann/qt/TP-InteligenciaArtificial"
 
 #include <QDir>
@@ -39,8 +39,6 @@ private:
     void drawCameraBox( int percentage = 100 );
     void drawSheet( QString textureName, int percentage = 100 );
     void drawBox( QString textureName, int percentage = 100 );
-
-    void cannyThreshold();
 
 public:
 

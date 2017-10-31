@@ -5,10 +5,9 @@ Scene::Scene( QWidget *parent ) : QGLWidget( parent ),
                                   sceneTimer ( new QTimer ),
                                   textures( new QVector< Texture * > )
 {
-    this->setMinimumSize( RESOLUTION_WIDTH, RESOLUTION_HEIGHT );
-    sceneTimer->start( 10 );
-
+    this->setFixedSize( RESOLUTION_WIDTH, RESOLUTION_HEIGHT );
     connect( sceneTimer, SIGNAL( timeout() ), SLOT( slot_updateScene() ) );
+    sceneTimer->start( 30 );
 }
 
 void Scene::loadTextures()
@@ -86,13 +85,17 @@ void Scene::paintGL()
     glFlush();
 }
 
+#include <QDebug>
+
 void Scene::process( Mat &frame )
 {
+    qDebug() << "Processing";
+
     Mat grayscaleMat; cvtColor( frame, grayscaleMat, CV_BGR2GRAY );
 
     Mat dst, detected_edges;
 
-    int lowThreshold = 10; // Parametrizar
+    int lowThreshold = 5; // Parametrizar
     int ratio = 20;
     int kernel_size = 3;
 
@@ -111,14 +114,6 @@ void Scene::process( Mat &frame )
     std::vector<std::vector<cv::Point> > contoursH; std::vector<cv::Vec4i> hierarchyH;
 
     findContours(detected_edges, contoursH, hierarchyH, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE);
-
-//    for(int i = 0; i < contoursH.size(); i++)
-//    {
-//        if(contoursH[i].size() < 100)
-//        {
-//            contoursH.erase(contoursH.begin() + (i-1));
-//        }
-//    }
 
     cv::Mat outputH = frame.clone();
     for( int i = 0; i< contoursH.size(); i++ )
@@ -170,6 +165,7 @@ void Scene::drawSheet( QString textureName, int percentage )
 void Scene::drawBox( QString textureName, int percentage )
 {
     for( int i = 0; i < textures->size(); i++ )
+    {
         if( textures->at( i )->name == textureName )
         {
             float sideLength = percentage / ( float )2300;
@@ -222,16 +218,13 @@ void Scene::drawBox( QString textureName, int percentage )
             glDisable( GL_LIGHTING );
             glDisable( GL_TEXTURE_2D );
         }
-}
-
-void Scene::cannyThreshold()
-{
+    }
 }
 
 void Scene::slot_updateScene()
 {
     videoCapture->operator >>( textures->operator []( 0 )->mat );
     process( textures->operator []( 0 )->mat );
-    textures->operator []( 0 )->generateFromMat();
-    this->updateGL();
+    //textures->operator []( 0 )->generateFromMat();
+    //this->updateGL();
 }
