@@ -87,45 +87,21 @@ void Scene::paintGL()
 
 #include <QDebug>
 
-void Scene::process( Mat &frame )
+void Scene::process( Mat &img )
 {
-    qDebug() << "Processing";
-
-    Mat grayscaleMat; cvtColor( frame, grayscaleMat, CV_BGR2GRAY );
-
-    Mat dst, detected_edges;
-
-    int lowThreshold = 5; // Parametrizar
-    int ratio = 20;
-    int kernel_size = 3;
-
-    if( !frame.data )
+    Mat gray; cvtColor( img, gray, CV_BGR2GRAY );
+    medianBlur(gray, gray, 3);
+    vector<Vec3f> circles;
+    HoughCircles(gray, circles, CV_HOUGH_GRADIENT, 1, 1,
+                 100, 30, 1, 30 // change the last two parameters
+                                // (min_radius & max_radius) to detect larger circles
+                 );
+    for( size_t i = 0; i < circles.size(); i++ )
     {
-        return;
+        Vec3i c = circles[i];
+        circle( img, Point(c[0], c[1]), c[2], Scalar(0,0,255), 1, CV_NORMAL);
+        circle( img, Point(c[0], c[1]), 2, Scalar(0,255,0), 1, CV_NORMAL);
     }
-
-    dst.create( frame.size(), frame.type() );
-
-    blur( grayscaleMat, detected_edges, Size(3, 3) );
-
-    Canny( detected_edges, detected_edges, lowThreshold, lowThreshold * ratio, kernel_size );
-
-    Mat binaryMat; threshold( grayscaleMat, binaryMat, 128, 255, cv::THRESH_BINARY );
-    std::vector<std::vector<cv::Point> > contoursH; std::vector<cv::Vec4i> hierarchyH;
-
-    findContours(detected_edges, contoursH, hierarchyH, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE);
-
-    cv::Mat outputH = frame.clone();
-    for( int i = 0; i< contoursH.size(); i++ )
-    {
-        cv::drawContours( outputH, contoursH, i, cv::Scalar(0,0,255), 3, 8, hierarchyH, 0);
-    }
-
-    dst = Scalar::all(0);
-
-    frame.copyTo( dst, detected_edges);
-
-    cv::imshow(QString("window").toStdString().c_str(), outputH);
 }
 
 void Scene::drawCamera( int percentage )
@@ -225,6 +201,6 @@ void Scene::slot_updateScene()
 {
     videoCapture->operator >>( textures->operator []( 0 )->mat );
     process( textures->operator []( 0 )->mat );
-    //textures->operator []( 0 )->generateFromMat();
-    //this->updateGL();
+    textures->operator []( 0 )->generateFromMat();
+    this->updateGL();
 }
