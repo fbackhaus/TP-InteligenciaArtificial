@@ -1,1 +1,0 @@
-La idea de este proyecto es utilizar el proyecto Tracking de la orientación de la mirada / v2.0 con el objetivo de almacenar en un archivo los valores de velocidad del conjunto de puntos característicos detectados por cada muestra en que el usuario afirma o niega con la cabeza (hacia la izquierda y la derecha).
