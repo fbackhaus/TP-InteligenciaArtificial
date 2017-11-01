@@ -1,0 +1,5 @@
+Esta versión contiene un prototipo de interfaz que levanta la cámara y calcula el conjunto de puntos a trackear, a su vez hace un seguimiento de los mismos y calcula el centroide y la diferencia con el centro del roi utilizado (centro de la nariz). Todos los puntos son graficados en el mismo widget.
+
+En esta versión, los puntos son referenciados en una barra lateral y también se añadieron clases que permiten graficar las posiciones y las velocidades de los puntos constantemente, se agregó un pequeño módulo de configuración de la cámara que funciona correctamente en linux, pero aún no en Windows.
+
+A partir de la información que genera este programa se espera obtener muestras de valores de velocidad en gestos de "si" y "no" para posiblemente obtener a futuro un clasificador de estos gestos. Para esto, se está desarrollando un proyecto que permita tomar las muestras, utilizando este mismo programa o una copia.
